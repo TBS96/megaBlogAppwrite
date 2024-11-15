@@ -1,10 +1,10 @@
 import React from 'react'
 import './App.css'
-import config from './config/config'
+import conf from './conf/conf'
 
 const App = () => {
 
-  const {appwriteUrl, appwriteProjectId, appwriteDatabaseId, appwriteCollectionId, appwriteBucketId} = config
+  const {appwriteUrl, appwriteProjectId, appwriteDatabaseId, appwriteCollectionId, appwriteBucketId} = conf
 
   console.log(appwriteUrl)
   console.log(appwriteProjectId)
