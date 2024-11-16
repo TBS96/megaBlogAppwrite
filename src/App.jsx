@@ -36,7 +36,11 @@ const App = () => {
         <Footer />
       </div>
     </div>
-  ) : null
+  ) : (
+    <div className='font-bold text-5xl text-center w-full min-h-screen bg-green-400'>
+      Loading...
+    </div>
+  )
 }
 
 export default App
