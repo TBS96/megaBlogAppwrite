@@ -7,6 +7,7 @@ import Button from './Button';
 import Input from './Input';
 import Login from './Login';
 import Signup from './Signup';
+import PostForm from './post-form/PostForm';
 import Select from './Select';
 import RTE from "./RTE";
 
@@ -20,6 +21,7 @@ export {
     Input,
     Login,
     Signup,
+    PostForm,
     Select,
     RTE
 }
