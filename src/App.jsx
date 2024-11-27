@@ -4,6 +4,7 @@ import authService from './appwrite/auth'
 import { login, logout } from './store/authSlice'
 import { Header, Footer } from './components/index'
 import { Outlet } from 'react-router-dom'
+import { Atom } from 'react-loading-indicators'
 
 const App = () => {
 
@@ -37,8 +38,8 @@ const App = () => {
       </div>
     </div>
   ) : (
-    <div className='font-bold text-5xl text-center w-full min-h-screen bg-green-400'>
-      Loading...
+    <div className='grid place-content-center w-full min-h-screen'>
+      <Atom color='#5021ec' size='large' />
     </div>
   )
 }

@@ -25,8 +25,10 @@ npm i react-hook-form
 npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 ```
-
+```bash
+react-loading-indicators
+```
 - ### Inline:
 ```bash
-npm i @reduxjs/toolkit react-redux react-router-dom appwrite @tinymce/tinymce-react html-react-parser react-hook-form
+npm i @reduxjs/toolkit react-redux react-router-dom appwrite @tinymce/tinymce-react html-react-parser react-hook-form react-loading-indicators
 ```
