@@ -26,7 +26,7 @@ npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 ```
 ```bash
-react-loading-indicators
+npm i react-loading-indicators
 ```
 - ### Inline:
 ```bash
