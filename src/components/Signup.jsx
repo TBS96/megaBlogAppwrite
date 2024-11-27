@@ -17,7 +17,7 @@ const Signup = () => {
     const [error, setError] = useState('');
 
     const signup = async (data) => {
-        // console.log(data);
+        console.log(data);
         // alert(JSON.stringify(data));
         setError('');
         try {
@@ -84,7 +84,7 @@ const Signup = () => {
                                 }
                             })}
                         />
-                        <Button type='submit' value={children} className='w-full'>Create Account{children}</Button>
+                        <Button type='submit' className='w-full'>Create Account</Button>
                     </div>
                 </form>
             </div>

@@ -17,7 +17,7 @@ const Login = () => {
     const [error, setError] = useState('');
 
     const login = async(data) => {
-        // console.log(data);
+        console.log(data);
         // alert(JSON.stringify(data));
         setError('');
         try {
@@ -75,7 +75,7 @@ const Login = () => {
                                 }
                             })}
                         />
-                        <Button type='submit' value={children} className='w-full'>Sign in {children}</Button>
+                        <Button type='submit' className='w-full'>Sign in</Button>
                     </div>
                 </form>
             </div>
