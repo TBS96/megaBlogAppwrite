@@ -84,7 +84,7 @@ const PostForm = ({post}) => {
                     className='mb-4'
                     {...register('slug', {required: true})}
                     onInput={(e) => {
-                        setValue('slug', slugTransform(e.currentValue.value), {shouldValidate: true})
+                        setValue('slug', slugTransform(e.currentTarget.value), {shouldValidate: true})
                     }}
                 />
                 <RTE label='Content' name='content' control={control} defaultValue={getValues('content')} />
