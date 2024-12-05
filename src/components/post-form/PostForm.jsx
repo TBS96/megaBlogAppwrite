@@ -57,7 +57,7 @@ export default function PostForm ({post}) {
             return value
             .trim()
             .toLowerCase()
-            .replace(/^[a-zA-Z\d\s]+/g, '-')
+            .replace(/[^a-zA-Z\d\s]+/g, '-')
             .replace(/\s/g, '-')
         return ''
     }, []);
@@ -85,6 +85,7 @@ export default function PostForm ({post}) {
                     label='Slug: '
                     placeholder='Slug...'
                     className='mb-4'
+                    readOnly
                     {...register('slug', {required: true})}
                     onInput={(e) => {
                         setValue('slug', slugTransform(e.currentTarget.value), {shouldValidate: true})
