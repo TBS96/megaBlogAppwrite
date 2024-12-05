@@ -3,10 +3,10 @@ import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom'
 import authService from '../appwrite/auth'
-import { login as storeLogin } from '../store/authSlice'
+import { login as authLogin } from '../store/authSlice'
 import { Button, Input, Logo } from './index'
 
-const Login = () => {
+function Login () {
 
     const navigate = useNavigate();
 
@@ -17,14 +17,14 @@ const Login = () => {
     const [error, setError] = useState('');
 
     const login = async(data) => {
-        console.log(data);
+        // console.log(data);
         // alert(JSON.stringify(data));
         setError('');
         try {
-            const session = await authService.login(data)
+            const session = await authService.login(data);
             if (session) {
                 const userData = await authService.getcurrentUser();
-                if (userData) dispatch(storeLogin(userData));
+                if (userData) dispatch(authLogin(userData));
                 navigate('/');
             }
         }
@@ -70,9 +70,9 @@ const Login = () => {
                             type='password'
                             {...register('password', {
                                 required: true,
-                                validate: {
-                                    matchPattern: (value) => /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(value) || 'at least 8 characters must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number; Can contain special characters'
-                                }
+                                // validate: {
+                                //     matchPattern: (value) => /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(value) || 'at least 8 characters must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number; Can contain special characters'
+                                // }
                             })}
                         />
                         <Button type='submit' className='w-full'>Sign in</Button>

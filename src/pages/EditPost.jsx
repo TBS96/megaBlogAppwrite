@@ -3,9 +3,9 @@ import { Container, PostForm } from '../components/index'
 import appwriteService from '../appwrite/config'
 import { useNavigate, useParams } from 'react-router-dom';
 
-const EditPost = () => {
+function EditPost () {
 
-    const [post, setPost] = useState([]);
+    const [post, setPost] = useState(null);
 
     const { slug } = useParams();
 
@@ -13,15 +13,14 @@ const EditPost = () => {
 
     useEffect(() => {
         if (slug) {
-            appwriteService.getPost(slug)
-            .then((post) => {
+            appwriteService.getPost(slug).then((post) => {
                 if (post) {
                     setPost(post)
                 }
             })
-            .catch(error => {
-                console.log('Error fetching post:', error);
-            })
+            // .catch(error => {
+            //     console.log('Error fetching post:', error);
+            // })
         }
         else {
             navigate('/');
@@ -31,7 +30,7 @@ const EditPost = () => {
     return post ? (
         <div className='py-8'>
             <Container>
-                <PostForm />
+                <PostForm post={post} />
             </Container>
         </div>
     ) : null

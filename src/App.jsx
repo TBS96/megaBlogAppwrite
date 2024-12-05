@@ -21,9 +21,9 @@ const App = () => {
         dispatch(logout())
       }
     })
-    .catch(error => {
-      console.error(error)
-    })
+    // .catch(error => {
+    //   console.error(error)
+    // })
     .finally(() => setLoading(false))
   }, [])
 

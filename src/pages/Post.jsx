@@ -5,7 +5,7 @@ import appwriteService from '../appwrite/config'
 import { Button, Container } from '../components/index'
 import parse from 'html-react-parser'
 
-const Post = () => {
+export default function Post () {
 
     const [post, setPost] = useState(null);
 
@@ -13,30 +13,24 @@ const Post = () => {
 
     const navigate = useNavigate();
 
-    const userData = useSelector(state => state.auth.userData);
+    const userData = useSelector((state) => state.auth.userData);
 
     const isAuthor = post && userData ? post.userId === userData.$id : false;
 
     useEffect(() => {
         if (slug) {
-            appwriteService.getPost(slug)
-            .then((post) => {
-                if (post) {
-                    setPost(post);
-                }
-                else {
-                    navigate('/');
-                }
+            appwriteService.getPost(slug).then((post) => {
+                if (post) setPost(post);
+                else navigate('/');
             })
-            .catch(error => {
-                console.log('Error fetching posts:', error);
-            })
+            // .catch(error => {
+            //     console.log('Error fetching posts:', error);
+            // })
         }
     }, [slug, navigate]);
 
     const deletePost = () => {
-        appwriteService.deletePost(post.$id)
-        .then((status) => {
+        appwriteService.deletePost(post.$id).then((status) => {
             if (status) {
                 appwriteService.deleteFile(post.featuredImage);
                 navigate('/');
@@ -72,5 +66,3 @@ const Post = () => {
         </div>
     ) : null
 }
-
-export default Post

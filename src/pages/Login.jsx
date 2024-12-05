@@ -1,7 +1,7 @@
 import React from 'react'
 import { Login as LoginComponent } from '../components/index'
 
-const Login = () => {
+function Login () {
     return (
         <div className='py-8'>
             <LoginComponent />

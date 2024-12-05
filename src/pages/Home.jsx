@@ -2,20 +2,19 @@ import React, { useEffect, useState } from 'react'
 import appwriteService from '../appwrite/config'
 import { Container, PostCard } from '../components/index'
 
-const Home = () => {
+function Home () {
 
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        appwriteService.getPosts()
-        .then((posts) => {
+        appwriteService.getPosts().then((posts) => {
             if (posts) {
                 setPosts(posts.documents);
             }
         })
-        .catch(error => {
-            console.log('Error fetching posts:', error);
-        })
+        // .catch(error => {
+        //     console.log('Error fetching posts:', error);
+        // })
     }, []);
 
     if (posts.length === 0) {
@@ -24,7 +23,7 @@ const Home = () => {
                 <Container>
                     <div className='flex flex-wrap'>
                         <div className='p-2 w-full'>
-                            <h1 className='text-2xl font-bold hover:text-gray-500'>Login to read posts</h1>
+                            <h1 className='text-2xl font-bold animate-pulse'>No posts yet. Create some of them...</h1>
                         </div>
                     </div>
                 </Container>

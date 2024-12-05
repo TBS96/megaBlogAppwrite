@@ -6,7 +6,7 @@ import authService from '../appwrite/auth';
 import { login } from '../store/authSlice';
 import { Logo, Input, Button } from './index'
 
-const Signup = () => {
+function Signup () {
 
     const navigate = useNavigate();
 
@@ -16,8 +16,8 @@ const Signup = () => {
 
     const [error, setError] = useState('');
 
-    const signup = async (data) => {
-        console.log(data);
+    const create = async (data) => {
+        // console.log(data);
         // alert(JSON.stringify(data));
         setError('');
         try {
@@ -52,12 +52,12 @@ const Signup = () => {
                 {error &&
                     <p className='text-red-600 mt-8 text-center'>{error}</p>
                 }
-                <form onSubmit={handleSubmit(signup)} className='mt-8'>
+                <form onSubmit={handleSubmit(create)}>
                     <div className='space-y-5'>
                         <Input
                             label='Full Name: '
                             placeholder='Enter your full name...'
-                            type='text'
+                            // type='text'
                             {...register('name', {
                                 required: true
                             })}
@@ -79,9 +79,9 @@ const Signup = () => {
                             type='password'
                             {...register('password', {
                                 required: true,
-                                validate: {
-                                    matchPattern: (value) => /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(value) || 'at least 8 characters must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number; Can contain special characters'
-                                }
+                                // validate: {
+                                //     matchPattern: (value) => /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(value) || 'at least 8 characters must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number; Can contain special characters'
+                                // }
                             })}
                         />
                         <Button type='submit' className='w-full'>Create Account</Button>

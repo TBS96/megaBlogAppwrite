@@ -3,18 +3,17 @@ import { useDispatch } from 'react-redux'
 import authService from '../../appwrite/auth'
 import { logout } from '../../store/authSlice'
 
-const LogoutBtn = () => {
+function LogoutBtn () {
 
     const dispatch = useDispatch();
 
     const logoutHandler = () => {
-        authService.logout()
-        .then(() => {
+        authService.logout().then(() => {
             dispatch(logout())
         })
-        .catch(error => {
-            console.error('Appwrite service :: logout :: error', error);
-        })
+        // .catch(error => {
+        //     console.error('Appwrite service :: logout :: error', error);
+        // })
     }
 
     return (

@@ -2,21 +2,20 @@ import React, { useEffect, useState } from 'react'
 import { Container, PostCard } from '../components/index'
 import appwriteService from '../appwrite/config'
 
-const AllPosts = () => {
+function AllPosts () {
 
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {}, []);
 
-    appwriteService.getPosts([])
-    .then((posts) => {
+    appwriteService.getPosts([]).then((posts) => {
         if (posts) {
             setPosts(posts.documents)
         }
     })
-    .catch(error => {
-        console.log('Error in showing posts:', error);
-    })
+    // .catch(error => {
+    //     console.log('Error in showing posts:', error);
+    // })
 
     return (
         <div className='w-full py-8'>
