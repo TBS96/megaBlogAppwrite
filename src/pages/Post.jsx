@@ -30,6 +30,7 @@ export default function Post () {
     }, [slug, navigate]);
 
     const deletePost = () => {
+        alert("Are you sure you want to delete this post?");
         appwriteService.deletePost(post.$id).then((status) => {
             if (status) {
                 appwriteService.deleteFile(post.featuredImage);
@@ -47,11 +48,11 @@ export default function Post () {
                         <div className='absolute right-6 top-6'>
                             <Link to={`/edit-post/${post.$id}`}>
                                 <Button bgColor='bg-green-500' className='mr-3'>
-                                    Edit
+                                    Edit Post
                                 </Button>
                             </Link>
                             <Button bgColor='bg-red-500' onClick={deletePost}>
-                                Delete
+                                Delete Post
                             </Button>
                         </div>
                     )}
