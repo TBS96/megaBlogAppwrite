@@ -28,6 +28,9 @@ npx tailwindcss init -p
 ```bash
 npm i react-loading-indicators
 ```
+```bash
+npm i -D daisyui@latest
+```
 - ### Inline:
 ```bash
 npm i @reduxjs/toolkit react-redux react-router-dom appwrite @tinymce/tinymce-react html-react-parser react-hook-form react-loading-indicators
