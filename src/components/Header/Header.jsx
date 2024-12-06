@@ -50,7 +50,7 @@ function Header () {
                             <Logo width='70px' />
                         </Link>
                     </div>
-                    <button onClick={() => setMenubar(!menubar)} className='btn btn-circle btn-outline dark:btn-secondary md:hidden'>
+                    <button onClick={() => setMenubar(!menubar)} className='btn btn-circle btn-outline dark:btn-success md:hidden'>
                         {menubar ? '⛌' : '𓃑'}
                     </button>
                     <ul className={`absolute md:relative top-16 left-0 md:top-0 md:left-auto bg-gray-800 md:bg-transparent dark:bg-gray-900 md:dark:bg-transparent w-full md:w-auto flex flex-col md:flex-row items-center md:items-center space-y-4 md:space-y-0 md:space-x-6 px-4 py-4 md:px-0 md:py-0 transition-all duration-300 ${menubar ? 'block' : 'hidden md:flex'}`}>
