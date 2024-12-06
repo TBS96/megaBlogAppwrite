@@ -16,10 +16,17 @@ function Login () {
 
     const [error, setError] = useState('');
 
+    const [data, setData] = useState('');
+
+    // const [showPass, setShowPass] = useState('');
+
+    // console.log(showPass)
+
     const login = async(data) => {
         // console.log(data);
         // alert(JSON.stringify(data));
         setError('');
+        setData(data);
         try {
             const session = await authService.login(data);
             if (session) {
@@ -34,7 +41,7 @@ function Login () {
     }
 
     return (
-        <div className='flex items-center justify-center w-full'>
+        <div className='flex items-center justify-center w-full my-8'>
             <div className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}>
                 <div className='mb-2 flex justify-center'>
                     <span className='inline-block w-full max-w-[100px]'>
@@ -49,7 +56,7 @@ function Login () {
                     </Link>
                 </p>
                 {error && 
-                    <p className='text-red-600 mt-8 text-center'>{error}</p>
+                    <p className='text-red-600 mt-8 text-center bg-error-content animate-pulse'>{error}</p>
                 }
                 <form onSubmit={handleSubmit(login)} className='mt-8'>
                     <div className='space-y-5'>
@@ -64,10 +71,14 @@ function Login () {
                                 }
                             })}
                         />
+                        {error && 
+                            <p className='text-red-600 mt-8 text-center animate-pulse bg-red-100'>{data.email} doesn't exist in our database. Please Sign Up!</p>
+                        }
                         <Input
                             label='Password: '
                             placeholder='Enter your password...'
                             type='password'
+                            // onChange={(e) => setShowPass(e.currentTarget.value)}
                             {...register('password', {
                                 required: true,
                                 // validate: {
@@ -75,7 +86,10 @@ function Login () {
                                 // }
                             })}
                         />
-                        <Button type='submit' className='w-full'>Sign in</Button>
+                        {/* {showPass.length > 0 ? (
+                            <p>{showPass}</p>
+                        ) : null} */}
+                        <Button type='submit' className='w-full hover:bg-blue-700'>Sign in</Button>
                     </div>
                 </form>
             </div>
