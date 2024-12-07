@@ -18,9 +18,7 @@ function Login () {
 
     const [data, setData] = useState('');
 
-    // const [showPass, setShowPass] = useState('');
-
-    // console.log(showPass)
+    const [showPass, setShowPass] = useState(false);
 
     const login = async(data) => {
         // console.log(data);
@@ -58,11 +56,11 @@ function Login () {
                 {error && 
                     <p className='text-red-600 mt-8 text-center bg-error-content animate-pulse'>{error}</p>
                 }
-                <form onSubmit={handleSubmit(login)} className='mt-8'>
+                <form onSubmit={handleSubmit(login)} className='mt-8 form-control'>
                     <div className='space-y-5'>
                         <Input
                             label='Email: '
-                            placeholder='Enter your email...'
+                            placeholder='you@voodoo.com'
                             type='email'
                             {...register('email', {
                                 required: true,
@@ -74,21 +72,21 @@ function Login () {
                         {error && 
                             <p className='text-red-600 mt-8 text-center animate-pulse bg-red-100'>{data.email} doesn't exist in our database. Please Sign Up!</p>
                         }
-                        <Input
-                            label='Password: '
-                            placeholder='Enter your password...'
-                            type='password'
-                            // onChange={(e) => setShowPass(e.currentTarget.value)}
-                            {...register('password', {
-                                required: true,
-                                // validate: {
-                                //     matchPattern: (value) => /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(value) || 'at least 8 characters must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number; Can contain special characters'
-                                // }
-                            })}
-                        />
-                        {/* {showPass.length > 0 ? (
-                            <p>{showPass}</p>
-                        ) : null} */}
+                        <div className='flex items-end sm:flex-col gap-2'>
+                            <Input
+                                label='Password: '
+                                placeholder='✪✪✪✪✪✪✪✪✪✪✪'
+                                type={showPass ? 'text' : 'password'}
+                                {...register('password', {
+                                    required: true,
+                                    // validate: {
+                                    //     matchPattern: (value) => /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(value) || 'at least 8 characters must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number; Can contain special characters'
+                                    // }
+                                })}
+                            />
+                            <input type='checkbox' className='hidden' id='show' onChange={() => setShowPass(!showPass)} />
+                            <label htmlFor="show" className='btn btn-square btn-outline'>{showPass ? 'hide' : 'show'}</label>
+                        </div>
                         <Button type='submit' className='w-full hover:bg-blue-700'>Sign in</Button>
                     </div>
                 </form>
