@@ -12,9 +12,6 @@ function Home () {
                 setPosts(posts.documents);
             }
         })
-        // .catch(error => {
-        //     console.log('Error fetching posts:', error);
-        // })
     }, []);
 
     if (posts.length === 0) {
@@ -38,7 +35,10 @@ function Home () {
                     {
                         posts.map((post) => (
                             <div key={post.$id} className='p-2 sm:w-1/2 md:w-1/4'>
-                                <PostCard {...post} />
+                                <PostCard
+                                    {...post}
+                                    authorName={post.name || 'Unknown'}
+                                />
                             </div>
                         ))
                     }

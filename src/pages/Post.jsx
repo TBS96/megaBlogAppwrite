@@ -8,9 +8,9 @@ import parse from 'html-react-parser'
 export default function Post () {
 
     const [post, setPost] = useState(null);
+    const [authorName, setAuthorName] = useState('');
 
     const { slug } = useParams();
-
     const navigate = useNavigate();
 
     const userData = useSelector((state) => state.auth.userData);
@@ -20,14 +20,17 @@ export default function Post () {
     useEffect(() => {
         if (slug) {
             appwriteService.getPost(slug).then((post) => {
-                if (post) setPost(post);
-                else navigate('/');
+                if (post) {
+                    setPost(post);
+                    if (post.userId === userData?.$id) {
+                        setAuthorName(userData.name);
+                    }
+                } else {
+                    navigate('/');
+                }
             })
-            // .catch(error => {
-            //     console.log('Error fetching posts:', error);
-            // })
         }
-    }, [slug, navigate]);
+    }, [slug, navigate, userData]);
 
     const deletePost = () => {
         alert("Are you sure you want to delete this post?");
@@ -59,6 +62,7 @@ export default function Post () {
                 </div>
                 <div className='w-full mb-6'>
                     <h1 className='text-2xl font-bold'>{post.title}</h1>
+                    <h2 className='text-gray-600'>Author: {authorName || 'Unknown'}</h2>
                 </div>
                 <div>
                     {parse(post.content)}
