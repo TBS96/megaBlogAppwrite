@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Logo, LogoutBtn } from '../index'
+import { Logo, LogoutBtn, UserBadge } from '../index'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
@@ -49,6 +49,9 @@ function Header () {
                         <Logo width='70px' />
                     </Link>
                 </div>
+                {authStatus &&
+                    <UserBadge />
+                }
                 <button onClick={() => setMenubar(!menubar)} className='btn btn-circle btn-outline dark:btn-success md:hidden'>
                     {menubar ? '⛌' : '𓃑'}
                 </button>
