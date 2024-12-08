@@ -37,7 +37,6 @@ function Home () {
                             <div key={post.$id} className='p-2 sm:w-1/2 md:w-1/4'>
                                 <PostCard
                                     {...post}
-                                    authorName={post.name || 'Unknown'}
                                 />
                             </div>
                         ))
