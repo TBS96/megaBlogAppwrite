@@ -41,16 +41,13 @@ export default function PostForm ({post}) {
             if (file) {
                 const fileId = file.$id;
                 data.featuredImage = fileId;
-                const dbPost = await appwriteService.createPost({
-                    ...data,
-                    userId: userData.$id,
-                })
+                const dbPost = await appwriteService.createPost({ ...data, userId: userData.$id });
                 if (dbPost) {
                     navigate(`/post/${dbPost.$id}`);
                 }
             }
         }
-    }
+    };
 
     const slugTransform = useCallback((value) => {
         if (value && typeof value === 'string')
@@ -67,9 +64,9 @@ export default function PostForm ({post}) {
             if (name === 'title') {
                 setValue('slug', slugTransform(value.title, {shouldValidate: true}))
             }
-        })
+        });
         return () => subscription.unsubscribe();
-    }, [watch, slugTransform, setValue])
+    }, [watch, slugTransform, setValue]);
 
     return (
         <form onSubmit={handleSubmit(submit)} className='flex flex-wrap'>
@@ -91,12 +88,12 @@ export default function PostForm ({post}) {
                         setValue('slug', slugTransform(e.currentTarget.value), {shouldValidate: true})
                     }}
                 />
-                <RTE label='Content' name='content' control={control} defaultValue={getValues('content')} />
+                <RTE label='Content: ' name='content' control={control} defaultValue={getValues('content')} />
             </div>
 
             <div className='w-1/3 px-2'>
                 <Input 
-                    label='Featured Image: '
+                    label='Featured Image:'
                     type='file'
                     className='mb-4'
                     accept='image/png, image/jpg, image/jpeg, image/gif'
@@ -109,11 +106,11 @@ export default function PostForm ({post}) {
                 }
                 <Select 
                     options={['active', 'inactive']}
-                    label='Status'
+                    label='Status:'
                     className='mb-4'
                     {...register('status', {required: true})}
                 />
-                <Button type='submit' bgColor={post ? 'bg-green-500' : undefined} className='w-full'>
+                <Button type='submit' bgColor={post ? 'bg-green-500' : undefined} className='w-full hover:bg-blue-700'>
                     {post ? 'Update' : 'Submit'}
                 </Button>
             </div>
