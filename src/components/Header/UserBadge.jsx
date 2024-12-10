@@ -17,7 +17,7 @@ const UserBadge = () => {
     }, [userData]);
 
     return (
-        <Link to='/' className='skeleton text-black px-5 py-1'>
+        <Link to='/' className='skeleton text-black font-bold px-5 py-1'>
             Hello {userName}!
         </Link>
     )
