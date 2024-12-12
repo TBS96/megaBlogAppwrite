@@ -67,8 +67,8 @@ function Footer() {
 
                 <div className='mt-8 text-center border-t border-t-gray-700 pt-4 text-sm'>
                     <p>
-                        &copy; Copyright 2024. All Rights Reserved by{' '}
-                        <Link to={`https://github.com/tbs96`} className='btn btn-ghost hover:underline underline-offset-4 decoration-error' target='_blank'>Prantik Ghosh</Link>.
+                        &copy; 2024 | All Rights Reserved by{' '}
+                        <Link to={`https://github.com/tbs96`} className='btn btn-ghost hover:underline underline-offset-4 decoration-error' target='_blank'>Prantik Ghosh</Link>
                     </p>
                 </div>
             </div>
