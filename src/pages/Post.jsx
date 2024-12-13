@@ -61,10 +61,10 @@ export default function Post () {
                     )}
                 </div>
                 <div className='w-full mb-6'>
-                    <h1 className='text-2xl font-bold'>{post.title}</h1>
-                    <h2 className='text-gray-600'>Author: {authorName || 'Unknown'}</h2>
+                    <h1 className='text-2xl font-bold mb-4'>{post.title}</h1>
+                    <h2 className='text-gray-600'>Author: <span className='text-gray-900 font-bold'>{authorName || 'Unknown'}</span> </h2>
                 </div>
-                <div>
+                <div className='glass px-3 py-1.5 rounded-lg font-medium select-none hover:bg-black hover:text-gray-300 duration-1000'>
                     {parse(post.content)}
                 </div>
             </Container>
