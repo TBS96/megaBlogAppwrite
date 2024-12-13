@@ -19,8 +19,8 @@ function Home () {
             <div className='w-full py-8 mt-4 text-center'>
                 <Container>
                     <div className='flex flex-wrap'>
-                        <div className='p-2 w-full'>
-                            <h1 className='text-2xl font-bold animate-pulse'>No posts yet. Create some of them...</h1>
+                        <div className='p-2'>
+                            <h1 className='text-2xl font-bold animate-typing overflow-hidden whitespace-nowrap border-r-2 border-white'>No posts yet. Create some of them...</h1>
                         </div>
                     </div>
                 </Container>
