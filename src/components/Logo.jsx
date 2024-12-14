@@ -1,8 +1,16 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-function Logo ({ width = '100px' }) {
+function Logo({ width = '100px' }) {
     return (
-        <div className='text-4xl btn btn-ghost'>⌨</div>
+        <Link to="/" className="">
+            <img
+                src="/favicon/apple-touch-icon.png"
+                alt="Blogify Logo"
+                className='btn rounded-2xl h-16'
+                style={{ width }}
+            />
+        </Link>
     )
 }
 

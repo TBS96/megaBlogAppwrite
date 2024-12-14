@@ -42,11 +42,11 @@ function Header () {
     ];
 
     return (
-        <header className='py-3 shadow-2xl shadow-slate-600 bg-blue-900 border-b border-gray-100 backdrop-blur-lg bg-opacity-30 text-white dark:text-gray-200 sticky top-0 z-50'>
+        <header className='py-1 shadow-2xl shadow-slate-600 bg-blue-900 border-b border-gray-100 backdrop-blur-lg bg-opacity-30 text-white dark:text-gray-200 sticky top-0 z-50'>
             <nav className='flex items-center justify-between max-w-7xl mx-auto px-4'>
                 <div className='mr-4'>
                     <Link>
-                        <Logo width='70px' />
+                        <Logo width='85px' />
                     </Link>
                 </div>
                 {authStatus &&
