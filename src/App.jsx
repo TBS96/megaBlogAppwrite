@@ -5,6 +5,7 @@ import { login, logout } from './store/authSlice'
 import { Header, Container, Footer } from './components/index'
 import { Outlet } from 'react-router-dom'
 import { Atom } from 'react-loading-indicators'
+import { SpeedInsights } from '@vercel/speed-insights/react'
 
 const App = () => {
 
@@ -37,6 +38,7 @@ const App = () => {
           </main>
         </Container>
         <Footer />
+        <SpeedInsights  />
       </div>
     </div>
   ) : (
