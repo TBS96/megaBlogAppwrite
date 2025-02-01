@@ -29,6 +29,80 @@ Blogify is a dynamic, modern web application for creating, managing, and sharing
 
 ## Getting Started
 
+### Folder structure
+```bash
+.
+├── .env.sample
+├── eslint.config.js
+├── .gitignore
+├── index.html
+├── package.json
+├── package-lock.json
+├── postcss.config.js
+├── public
+│   ├── favicon
+│   │   ├── android-chrome-192x192.png
+│   │   ├── android-chrome-512x512.png
+│   │   ├── apple-touch-icon.png
+│   │   ├── favicon-16x16.png
+│   │   ├── favicon-32x32.png
+│   │   ├── favicon.ico
+│   │   ├── icon.png
+│   │   └── site.webmanifest
+│   └── vite.svg
+├── README.md
+├── src
+│   ├── App.css
+│   ├── App.jsx
+│   ├── appwrite
+│   │   ├── auth.js
+│   │   └── config.js
+│   ├── assets
+│   │   └── react.svg
+│   ├── components
+│   │   ├── AuthLayout.jsx
+│   │   ├── Button.jsx
+│   │   ├── container
+│   │   │   └── Container.jsx
+│   │   ├── Footer
+│   │   │   └── Footer.jsx
+│   │   ├── Header
+│   │   │   ├── Header.jsx
+│   │   │   ├── LogoutBtn.jsx
+│   │   │   └── UserBadge.jsx
+│   │   ├── index.js
+│   │   ├── Input.jsx
+│   │   ├── Login.jsx
+│   │   ├── Logo.jsx
+│   │   ├── PostCard.jsx
+│   │   ├── post-form
+│   │   │   └── PostForm.jsx
+│   │   ├── RTE.jsx
+│   │   ├── Select.jsx
+│   │   └── Signup.jsx
+│   ├── conf
+│   │   └── conf.js
+│   ├── index.css
+│   ├── main.jsx
+│   ├── pages
+│   │   ├── AddPost.jsx
+│   │   ├── AllPosts.jsx
+│   │   ├── EditPost.jsx
+│   │   ├── Home.jsx
+│   │   ├── Login.jsx
+│   │   ├── Post.jsx
+│   │   └── Signup.jsx
+│   └── store
+│       ├── authSlice.js
+│       └── store.js
+├── tailwind.config.js
+├── tree.txt
+├── vercel.json
+└── vite.config.js
+
+14 directories, 54 files
+```
+
 Follow these steps to set up and run the project on your local machine:
 
 ### Prerequisites
